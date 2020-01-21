@@ -90,4 +90,30 @@ router.delete("/remove/:id", (req, res) => {
   })
 });
 
+/**
+ * Gets all tasks that are pending
+ */
+router.get("/pending", (req, res) => {
+  pool.query(`select * from todolistitems where status = 'PENDING'`)
+  .then(q_res=> {
+    res.send(q_res.rows);
+  })
+  .catch(q_err=> {
+    res.send("There was an error processing this request. Please try again.");
+  });
+});
+
+/**
+ * Gets all completed tasks
+ */
+router.get("/completed", (req, res) => {
+  pool.query(`select * from todolistitems where status = 'COMPLETED'`)
+  .then(q_res=> {
+    res.send(q_res.rows);
+  })
+  .catch(q_err=> {
+    res.send("There was an error processing this request. Please try again.");
+  });
+});
+
 module.exports = router;
