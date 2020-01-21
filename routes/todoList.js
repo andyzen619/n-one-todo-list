@@ -28,8 +28,6 @@ router.get("/getAll", (req, res) => {
 router.post("/add", (req, res) => {
   const todoItem = req.body;
 
-  console.log(todoItem.due_date);
-
   pool
     .query(
       `insert into todolistitems 
@@ -49,11 +47,37 @@ router.post("/add", (req, res) => {
     });
 });
 
+/**
+ * Updates specified todo list item
+ */
 router.put("/update/:id", (req, res) => {
   const todoItemId = req.params.id;
-  res.send(`Update todo item ${todoItemId}`);
+  const todoItem = req.body;
+
+  let success = 0;
+
+  Object.keys(todoItem).forEach(key => {
+    pool.query(`update todolistitems set ${key} = '${todoItem[key]}'
+    where id = ${todoItemId}
+    `)
+    .then(q_res => {
+      console.log(`Updated ${key} for todo item ${todoItemId}`);
+      success += 1;
+    })
+    .catch(q_err => {
+      console.log(q_err);
+      res.send("There was an error updating this item, please try again.")
+    });    
+  })
+
+  if(success === Object.keys(todoItemId).length - 1){
+    res.send(`Update todo item ${todoItemId}`);
+  }
 });
 
+/**
+ * Removed specified todo list item
+ */
 router.delete("/remove/:id", (req, res) => {
   const todoItemId = req.params.id;
   res.send(`Remove item ${todoItemId}`);
