@@ -80,7 +80,14 @@ router.put("/update/:id", (req, res) => {
  */
 router.delete("/remove/:id", (req, res) => {
   const todoItemId = req.params.id;
-  res.send(`Remove item ${todoItemId}`);
+
+  pool.query(`delete from todolistitems where id = '${todoItemId}'`)
+  .then(q_res => {
+    res.send("Item has been successfully removed");
+  })
+  .catch(q_err => {
+    res.send("There was an error removing this item, please try again.");
+  })
 });
 
 module.exports = router;
