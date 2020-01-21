@@ -8,7 +8,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/getAll', (req, res) => {
-  res.send('All TODO items are here!!');
+  pool.query("select * from todolistitems")
+  .then(q_res => {
+    res.send(q_res.rows);
+  })
+  .catch(q_err=> {
+    console.log(q_err);
+    res.send("There was an error with this request");
+  });
 })
 
 router.post('/add', (req, res) => {
