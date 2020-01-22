@@ -9,5 +9,6 @@ router.use("/", require("./todoList/getTaskItems/getCompletedTaskItems"));
 router.use("/", require("./todoList/getTaskItems/getPendingTaskItems"));
 router.use("/", require("./todoList/getTaskItems/getTasksSortedByDueDate"));
 router.use("/", require("./todoList/updateTaskItems/updateTaskItem"));
+router.use("/", require("./todoList/getTaskItems/getTaskItemByCategory"));
 
 module.exports = router;
