@@ -5,7 +5,7 @@ var pool = require("../../../db/db");
 /**
  * Gets all completed tasks
  */
-router.get("/completed", (req, res) => {
+router.get("/getAll/completed", (req, res) => {
   pool.query(`select * from todolistitems where status = 'COMPLETED'`)
   .then(q_res=> {
     res.send(q_res.rows);

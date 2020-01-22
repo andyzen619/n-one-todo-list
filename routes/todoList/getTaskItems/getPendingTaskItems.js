@@ -5,7 +5,7 @@ var pool = require("../../../db/db");
 /**
  * Gets all tasks that are pending
  */
-router.get("/pending", (req, res) => {
+router.get("/getAll/pending", (req, res) => {
   pool.query(`select * from todolistitems where status = 'PENDING'`)
   .then(q_res=> {
     res.send(q_res.rows);
