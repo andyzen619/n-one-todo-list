@@ -6,8 +6,10 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var todoListRouter = require('./routes/todoList');
+// var usersRouter = require('./routes/users');
+var todoListRouter = require('./routes/todoListRouter');
+
+
 
 var app = express();
 
