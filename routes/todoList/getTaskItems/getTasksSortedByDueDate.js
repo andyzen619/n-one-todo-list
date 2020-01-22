@@ -6,7 +6,7 @@ var pool = require("../../../db/db");
  * Gets all tasks sorted by due date descending
  */
 router.get('/getAll/sortByDueDate', (req, res) => {
-  pool.query(`select * from todolistitems order by due_date ASC`)
+  pool.query(`select * from todolistitems where not status='COMPLETED' order by due_date ASC`)
   .then(q_res => {
 
     res.send(q_res.rows);
