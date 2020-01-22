@@ -39,6 +39,23 @@ insert into todolistitems (
     'Finish lighthouse boot camp',
     'Complete the 12 week web development boot camp',
     TO_DATE('16/01/2019', 'DD/MM/YYYY'),
-    'COMPLETED',
+    'PENDING',
     'school'
+  );
+
+  insert into todolistitems (
+  title, 
+  description, 
+  due_date, 
+  status,
+  category,
+  parent_task_id)
+
+  values (
+    'Demo final project',
+    'Present final project to employers',
+    TO_DATE('16/01/2019', 'DD/MM/YYYY'),
+    'PENDING',
+    'school',
+    3
   );

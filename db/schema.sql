@@ -6,5 +6,6 @@ create table todoListItems (
   description varchar(1028),
   due_date DATE,
   status varchar(255),
-  category varchar(255)
+  category varchar(255),
+  parent_task_id int references todoListItems(id)
 );
