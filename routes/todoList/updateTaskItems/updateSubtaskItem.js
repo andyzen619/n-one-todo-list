@@ -2,6 +2,9 @@ var express = require("express");
 var router = express.Router();
 var pool = require("../../../db/db");
 
+/**
+ * Assings new parent task to a sub task.
+ */
 router.put("/update/subTasks/:taskId", (req, res) => {
   const taskId = req.params.taskId;
   const newParentTaskId = req.body.newParentTaskId;

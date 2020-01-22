@@ -2,6 +2,10 @@ var express = require("express");
 var router = express.Router();
 var pool = require("../../../db/db");
 
+
+/**
+ * Get all tasks by category
+ */
 router.get("/getAll/byCategory/:category", (req, res) => {
   const category = req.params.category;
 

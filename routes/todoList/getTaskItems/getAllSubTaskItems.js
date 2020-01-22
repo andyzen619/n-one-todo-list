@@ -2,6 +2,9 @@ var express = require("express");
 var router = express.Router();
 var pool = require("../../../db/db");
 
+/**
+ * Gets all subtasks of a task
+ */
 router.get("/getAll/subTasks/:parentTaskId", (req, res) => {
   const parentTaskId = req.params.parentTaskId;
 
