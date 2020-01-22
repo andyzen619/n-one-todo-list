@@ -26,7 +26,7 @@ router.put("/update/:id", (req, res) => {
         success += 1;
 
         //Send back success response if all upates were successfull
-        if (success === Object.keys(todoItemId).length - 1) {
+        if (success === Object.keys(todoItemId).length) {
           console.log(
             "Number of successfull updates is equal to length of body"
           );
