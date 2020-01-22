@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
+//Creates the root router of all todo List routes
 router.use("/", require("./todoList/createTaskItems/createNewTask"));
 router.use("/", require("./todoList/deleteTaskItems/deleteTaskItem"));
 router.use("/", require("./todoList/getTaskItems/getAllTaskItems"));

@@ -7,6 +7,7 @@ var pool = require("../../../db/db");
  */
 router.post("/add", (req, res) => {
   const todoItem = req.body;
+  console.log(todoItem);
 
   pool
     .query(
