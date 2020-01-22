@@ -12,5 +12,6 @@ router.use("/", require("./todoList/updateTaskItems/updateTaskItem"));
 router.use("/", require("./todoList/getTaskItems/getTaskItemByCategory"));
 router.use("/", require("./todoList/getTaskItems/getAllSubTaskItems"));
 router.use("/", require("./todoList/updateTaskItems/updateSubtaskItem"));
+router.use("/", require("./todoList/createTaskItems/addSubTask"));
 
 module.exports = router;
